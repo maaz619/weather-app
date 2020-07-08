@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+.weatherbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  width: 80%;
+  height: 70%;
+  background-color: rgba(130, 133, 133, 0.842);
+  color: whitesmoke;
+  border-radius: 10px;
+}
+.temp-loc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.temperature-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+  font-size: xx-large;
+}
+.location-box {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2%;
+}
+.weather-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+.type {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2%;
+}
+.today-forcast {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10vh;
+  width: 100%;
+  align-items: center;
+}
+.all-forcast {
+  padding: 15px;
+  font-size: xx-large;
+}
