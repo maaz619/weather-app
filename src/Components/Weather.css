@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: start;
+  justify-content: flex-start;
   width: 80%;
   height: 70%;
   background-color: rgba(130, 133, 133, 0.842);
@@ -19,8 +19,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 10vh;
   width: 100%;
-  align-items: center;
 }
 .temperature-box {
   display: flex;
@@ -38,6 +38,8 @@
   flex-direction: row;
   justify-content: flex-end;
   width: 100%;
+  height: 15vh;
+  align-items: center;
 }
 .type {
   display: flex;
@@ -48,11 +50,41 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 10vh;
+  height: 20vh;
   width: 100%;
   align-items: center;
 }
 .all-forcast {
-  padding: 15px;
+  display: flex;
+  justify-content: center;
   font-size: xx-large;
+  align-items: center;
+}
+.weather-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 15vh;
+  width: 100%;
+}
+.ti-va {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  display: flex;
+  padding: 15px;
+  font-size: small;
+}
+.value {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  font-size: small;
+}
+.update-button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
