@@ -7,8 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   return (
     <div id="app">
-      <WeatherBox />,
       <SearchBar />
+      <WeatherBox />
     </div>
   );
 };

@@ -46,7 +46,9 @@ const WeatherBox = () => {
           ))}
         </div>
         <div className="update-button">
-          <button className="btn btn-primary"> refresh</button>
+          <div>
+            <button className="btn btn-primary"> refresh</button>
+          </div>
         </div>
       </div>
     </div>
