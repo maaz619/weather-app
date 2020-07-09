@@ -9,7 +9,7 @@ class WeatherBox extends Component {
       temp: "",
       location: [],
       type: "",
-      forcast: [10, 20, 30, 40, 50, 60],
+      forcast: [],
       details: [
         { title: "Temperature", value: "" },
         { title: "Condition", value: "" },
@@ -25,11 +25,11 @@ class WeatherBox extends Component {
     this.thedata = currentWeather.data;
     this.setState({
       temp: this.thedata.main.temp,
-      loaction: this.thedata.name,
-      type: this.thedata.weather.main,
+      location: this.thedata.name,
+      type: this.thedata.weather[0].main,
       details: [
         { title: "Temperature", value: this.thedata.main.temp },
-        { title: "Condition", value: [this.thedata.weather.main] },
+        { title: "Condition", value: [this.thedata.weather[0].description] },
         { title: "Wind", value: this.thedata.wind.speed },
         { title: "Humidity", value: this.thedata.main.humidity },
       ],
@@ -43,10 +43,10 @@ class WeatherBox extends Component {
     this.setState({
       temp: this.thedata.main.temp,
       loaction: this.thedata["name"],
-      type: this.thedata.weather.main,
+      type: this.thedata.weather[0].main,
       details: [
         { title: "Temperature", value: this.thedata.main.temp },
-        { title: "Condition", value: this.thedata.weather["main"] },
+        { title: "Condition", value: this.thedata.weather[0].description },
         { title: "Wind", value: this.thedata.wind.speed },
         { title: "Humidity", value: this.thedata.main.humidity },
       ],
@@ -78,12 +78,8 @@ class WeatherBox extends Component {
           <div className="weather-details">
             {this.state.details.map((detail, i) => (
               <div className="ti-va" key={i}>
-                <div className="title" key={i}>
-                  {detail.title}
-                </div>
-                <div className="value" key={i}>
-                  {detail.value}
-                </div>
+                <div className="title">{detail.title}</div>
+                <div className="value">{detail.value}</div>
               </div>
             ))}
           </div>

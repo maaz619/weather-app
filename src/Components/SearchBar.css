@@ -1,7 +1,34 @@
-.searchbox {
+.searchbox-container {
   display: flex;
-  justify-content: center;
-  height: 10vh;
+  justify-content: flex-start;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
+  z-index: 2;
+  flex-direction: column;
+  margin-top: 30px;
+  position: absolute;
+}
+.searchbox {
+  width: 30%;
+}
+div.searchbox-container > div.searchbox > input.searchbox-input {
+  border: none !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.autocomplete-container {
+  width: 30%;
+  height: fit-content;
+  max-height: 40vh;
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.autocomplete-item {
+  width: 100%;
+  height: 5vh;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+}
+.autocomplete-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
