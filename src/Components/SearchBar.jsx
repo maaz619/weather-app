@@ -46,9 +46,15 @@ class SearchBar extends Component {
       matchingCity: [],
     });
   };
+
+  handleClick = (city) => {
+    this.setState({
+      city,
+    });
+  };
   render() {
     return (
-      <div className="searchbox-container">
+      <div className="searchbox-container" onBlur={this.handleOutsideClick}>
         <div className="searchbox">
           <input
             className="form-control searchbox-input"
@@ -56,13 +62,18 @@ class SearchBar extends Component {
             placeholder="Search for cities"
             value={this.state.city}
             onChange={this.handleChange}
-            onBlur={this.handleOutsideClick}
             name="city"
           />
         </div>
         <div className="autocomplete-container">
           {this.state.matchingCity.map((city, i) => (
-            <div className="autocomplete-item" key={i}>
+            <div
+              className="autocomplete-item"
+              onMouseDown={() => {
+                this.handleClick(city);
+              }}
+              key={i}
+            >
               {city}
             </div>
           ))}
