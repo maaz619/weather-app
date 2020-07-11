@@ -1,8 +1,8 @@
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 90vh;
-  margin-top: 3%;
 }
 .weatherbox {
   display: flex;
@@ -11,9 +11,10 @@
   justify-content: flex-start;
   width: 80%;
   height: 70%;
-  background-color: rgba(130, 133, 133, 0.842);
-  color: whitesmoke;
+  background-color: white;
+  color: black;
   border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 .temp-loc {
   display: flex;
@@ -27,6 +28,7 @@
   justify-content: flex-end;
   padding: 15px;
   font-size: xx-large;
+  align-items: center;
 }
 .location-box {
   display: flex;
@@ -75,13 +77,13 @@
 .title {
   display: flex;
   padding: 15px;
-  font-size: large;
+  font-size: 30px;
 }
 .value {
   display: flex;
   justify-content: center;
   padding: 15px;
-  font-size: small;
+  font-size: 25px;
 }
 .update-button {
   display: flex;

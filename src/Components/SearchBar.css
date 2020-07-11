@@ -1,7 +1,36 @@
-.searchbox {
+.searchbox-container {
   display: flex;
-  justify-content: center;
-  height: 10vh;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 100%;
-  align-items: flex-end;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  margin-top: 30px;
+}
+.input-box {
+  display: flex;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 4px rgba(0, 0, 0, 0.15);
+  width: 40%;
+  justify-content: center;
+}
+.searchbox-container > .input-box > .input {
+  border: none;
+}
+.searchbox-container > .input-box > .input:focus {
+  box-shadow: none;
+}
+.autocomplete {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  height: fit-content;
+  width: 40%;
+  max-height: 40vh;
+}
+.autocomplete-items {
+  height: 5vh;
+  width: 100%;
+  background: white;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.8);
 }

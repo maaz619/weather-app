@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import "./Weather.css";
 import Axios from "axios";
+import {
+  WiRain,
+  WiCelsius,
+  WiWindBeaufort0,
+  WiHumidity,
+  WiRaindrops,
+} from "weather-icons-react";
 
 class WeatherBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
       temp: "",
-      location: [],
+      location: "Koderma",
       type: "",
-      forcast: [10, 20, 30, 40, 50, 60],
+      forcast: [],
       details: [
         { title: "Temperature", value: "" },
         { title: "Condition", value: "" },
@@ -24,14 +31,45 @@ class WeatherBox extends Component {
     );
     this.thedata = currentWeather.data;
     this.setState({
-      temp: this.thedata.main.temp,
-      loaction: this.thedata.name,
-      type: this.thedata.weather.main,
+      temp: Math.floor(this.thedata.main.temp - 273.15),
+      location: this.thedata.name,
+      type: this.thedata.weather[0].main,
       details: [
-        { title: "Temperature", value: this.thedata.main.temp },
-        { title: "Condition", value: [this.thedata.weather.main] },
-        { title: "Wind", value: this.thedata.wind.speed },
-        { title: "Humidity", value: this.thedata.main.humidity },
+        {
+          title: "Temperature",
+          value: (
+            <div>
+              {Math.floor(this.thedata.main.temp - 273.15)}
+              <WiCelsius size={50} color="blue" />
+            </div>
+          ),
+        },
+        {
+          title: "Condition",
+          value: (
+            <div>
+              {this.thedata.weather[0].description}
+              <WiRaindrops size={50} color="blue" />
+            </div>
+          ),
+        },
+        {
+          title: "Wind",
+          value: (
+            <div>
+              {this.thedata.wind.speed}
+              <WiWindBeaufort0 size={50} color="blue" />{" "}
+            </div>
+          ),
+        },
+        {
+          title: "Humidity",
+          value: (
+            <div>
+              {this.thedata.main.humidity} <WiHumidity size={50} color="blue" />
+            </div>
+          ),
+        },
       ],
     });
   }
@@ -41,17 +79,42 @@ class WeatherBox extends Component {
     );
     this.thedata = currentWeather.data;
     this.setState({
-      temp: this.thedata.main.temp,
-      loaction: this.thedata["name"],
-      type: this.thedata.weather.main,
+      temp: Math.floor(this.thedata.main.temp - 273.15),
+      location: this.thedata.name,
+      type: this.thedata.weather[0].main,
       details: [
-        { title: "Temperature", value: this.thedata.main.temp },
-        { title: "Condition", value: this.thedata.weather["main"] },
-        { title: "Wind", value: this.thedata.wind.speed },
-        { title: "Humidity", value: this.thedata.main.humidity },
+        {
+          title: "Temperature",
+          value: (
+            <div>
+              {Math.floor(this.thedata.main.temp - 273.15)}
+              <WiCelsius size={50} color="blue" />
+            </div>
+          ),
+        },
+        {
+          title: "Condition",
+          value: <div>{this.thedata.weather[0].description}</div>,
+        },
+        {
+          title: "Wind",
+          value: (
+            <div>
+              {this.thedata.wind.speed}
+              <WiWindBeaufort0 size={50} color="blue" />{" "}
+            </div>
+          ),
+        },
+        {
+          title: "Humidity",
+          value: (
+            <div>
+              {this.thedata.main.humidity} <WiHumidity size={50} color="blue" />
+            </div>
+          ),
+        },
       ],
     });
-    console.log("clicked");
   };
   render() {
     return (
@@ -61,11 +124,16 @@ class WeatherBox extends Component {
             <div className="location-box">
               <h1>{this.state.location}</h1>
             </div>
-            <div className="temperature-box">{this.state.temp}</div>
+            <div className="temperature-box">
+              {this.state.temp} <WiCelsius size={100} color="blue" />
+            </div>
           </div>
           <div className="weather-type">
             <div className="type">
-              <h1>{this.state.type}</h1>
+              <h1>
+                <WiRain size={100} color="blue" />
+                {this.state.type}
+              </h1>
             </div>
           </div>
           <div className="today-forcast">
@@ -78,12 +146,8 @@ class WeatherBox extends Component {
           <div className="weather-details">
             {this.state.details.map((detail, i) => (
               <div className="ti-va" key={i}>
-                <div className="title" key={i}>
-                  {detail.title}
-                </div>
-                <div className="value" key={i}>
-                  {detail.value}
-                </div>
+                <div className="title">{detail.title}</div>
+                <div className="value">{detail.value}</div>
               </div>
             ))}
           </div>
