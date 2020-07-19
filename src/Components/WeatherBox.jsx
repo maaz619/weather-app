@@ -1,22 +1,27 @@
 import React, { Component } from "react";
 import "./Weather.css";
 import Axios from "axios";
+import WeatherIcons from "./WeatherIcons";
+import SearchBar from "./SearchBar";
 import {
-  WiRain,
   WiCelsius,
   WiWindBeaufort0,
   WiHumidity,
   WiRaindrops,
 } from "weather-icons-react";
 
-class WeatherBox extends Component {
+class WeatherBox extends (Component, SearchBar) {
   constructor(props) {
     super(props);
     this.state = {
       temp: "",
-      location: "Koderma",
+      location: "none",
       type: "",
-      forcast: [],
+      extra: [
+        { title: "Time", value: "" },
+        { title: "Sunrise", value: "" },
+        { title: "Sunset", value: "" },
+      ],
       details: [
         { title: "Temperature", value: "" },
         { title: "Condition", value: "" },
@@ -27,13 +32,18 @@ class WeatherBox extends Component {
   }
   async componentDidMount() {
     const currentWeather = await Axios.get(
-      "https://api.openweathermap.org/data/2.5/weather?id=1266414&appid=005979b9efbaa27908bf6de270165897"
+      "https://api.openweathermap.org/data/2.5/weather?q=kodarma&appid=005979b9efbaa27908bf6de270165897"
     );
     this.thedata = currentWeather.data;
     this.setState({
       temp: Math.floor(this.thedata.main.temp - 273.15),
       location: this.thedata.name,
       type: this.thedata.weather[0].main,
+      extra: [
+        { title: "Time", value: <div>{this.thedata.timezone}</div> },
+        { title: "Sunrise", value: <div>{this.thedata.sys.sunrise}</div> },
+        { title: "Sunset", value: <div>{this.thedata.sys.sunset}</div> },
+      ],
       details: [
         {
           title: "Temperature",
@@ -75,13 +85,18 @@ class WeatherBox extends Component {
   }
   handleClick = async () => {
     const currentWeather = await Axios.get(
-      "https://api.openweathermap.org/data/2.5/weather?id=1266414&appid=005979b9efbaa27908bf6de270165897"
+      "https://api.openweathermap.org/data/2.5/weather?q=ranchi&appid=005979b9efbaa27908bf6de270165897"
     );
     this.thedata = currentWeather.data;
     this.setState({
       temp: Math.floor(this.thedata.main.temp - 273.15),
       location: this.thedata.name,
       type: this.thedata.weather[0].main,
+      extra: [
+        { title: "Time", value: <div>{this.thedata.timezone}</div> },
+        { title: "Sunrise", value: <div>{this.thedata.sys.sunrise}</div> },
+        { title: "Sunset", value: <div>{this.thedata.sys.sunset}</div> },
+      ],
       details: [
         {
           title: "Temperature",
@@ -116,6 +131,7 @@ class WeatherBox extends Component {
       ],
     });
   };
+
   render() {
     return (
       <div className="container">
@@ -130,16 +146,15 @@ class WeatherBox extends Component {
           </div>
           <div className="weather-type">
             <div className="type">
-              <h1>
-                <WiRain size={100} color="blue" />
-                {this.state.type}
-              </h1>
+              <WeatherIcons type={this.state.type} />
+              {this.state.type}
             </div>
           </div>
           <div className="today-forcast">
-            {this.state.forcast.map((temperature, j) => (
+            {this.state.extra.map((extra, j) => (
               <div className="all-forcast" key={j}>
-                {temperature + "c"}
+                <div className="title">{extra.title}</div>
+                <div className="value">{extra.value}</div>
               </div>
             ))}
           </div>

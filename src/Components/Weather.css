@@ -47,26 +47,29 @@
   display: flex;
   justify-content: flex-end;
   padding: 2%;
+  font-size: 30px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
 }
 .today-forcast {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 15vh;
+  height: 17vh;
   width: 100%;
-  align-items: center;
 }
-.all-forcast {
+/* .all-forcast {
   display: flex;
   justify-content: center;
   font-size: xx-large;
   align-items: center;
-}
+} */
 .weather-details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 15vh;
+  height: 17vh;
   width: 100%;
 }
 .ti-va {
@@ -78,6 +81,7 @@
   display: flex;
   padding: 15px;
   font-size: 30px;
+  font-weight: bold;
 }
 .value {
   display: flex;
@@ -87,7 +91,7 @@
 }
 .update-button {
   display: flex;
-  height: 10vh;
+  height: fit-content;
   width: 100%;
   justify-content: center;
   align-items: center;

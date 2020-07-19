@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./SearchBar.css";
-
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +53,7 @@ class SearchBar extends Component {
             onChange={this.handleChange}
             name="city"
             value={this.state.city}
-            onFocus={(this.value = "")}
+            onFocus={(this.value = [])}
           />
         </div>
         <div className="autocomplete">
