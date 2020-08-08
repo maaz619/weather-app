@@ -3,12 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(22, 27, 38);
-  background: linear-gradient(
-    90deg,
-    rgba(22, 27, 38, 1) 37%,
-    rgba(2, 0, 36, 1) 100%
-  );
 }
 .input-box {
   display: flex;
