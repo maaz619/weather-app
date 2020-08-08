@@ -44,7 +44,7 @@ const WeatherBox = ({
       });
     };
     fethchdata();
-  }, []);
+  }, [setState]);
   function timeStamp(RiseSet) {
     let date = new Date(RiseSet * 1000);
     let hour = date.getHours();
