@@ -18,24 +18,24 @@ import {
   WiVolcano,
 } from "weather-icons-react";
 const icons = [
-  { title: "clear sky", value: <WiDaySunny size={100} color="purple" /> },
-  { title: "few clouds", value: <WiCloud size={100} color="purple" /> },
+  { title: "Clear sky", value: <WiDaySunny size={100} color="purple" /> },
+  { title: "Few clouds", value: <WiCloud size={100} color="purple" /> },
   {
-    title: "scattered clouds",
+    title: "Scattered clouds",
     value: <WiNightPartlyCloudy size={100} color="purple" />,
   },
   {
-    title: "broken clouds",
+    title: "Broken clouds",
     value: <WiCloudRefresh size={100} color="purple" />,
   },
-  { title: "shower rain", value: <WiRainMix size={100} color="purple" /> },
+  { title: "Shower rain", value: <WiRainMix size={100} color="purple" /> },
   { title: "Rain", value: <WiRain size={100} color="purple" /> },
   {
-    title: "thunderstorm",
+    title: "Thunderstorm",
     value: <WiThunderstorm size={100} color="purple" />,
   },
-  { title: "snow", value: <WiSnow size={100} color="purple" /> },
-  { title: "mist", value: <WiFog size={100} color="purple" /> },
+  { title: "Snow", value: <WiSnow size={100} color="purple" /> },
+  { title: "Mist", value: <WiFog size={100} color="purple" /> },
   { title: "Clear", value: <WiDaySunny size={100} color="purple" /> },
   { title: "Clouds", value: <WiCloud size={100} color="purple" /> },
   {
@@ -52,7 +52,7 @@ const icons = [
     title: "Dust",
     value: <WiDust size={100} color="purple" />,
   },
-  { title: "sand", value: <WiSandstorm size={100} color="purple" /> },
+  { title: "Sand", value: <WiSandstorm size={100} color="purple" /> },
   { title: "Ash", value: <WiVolcano size={100} color="purple" /> },
 ];
 

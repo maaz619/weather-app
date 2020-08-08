@@ -1,36 +1,32 @@
 .searchbox-container {
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
   align-items: center;
-  position: absolute;
-  z-index: 2;
-  margin-top: 30px;
+  justify-content: center;
+  background: rgb(22, 27, 38);
+  background: linear-gradient(
+    90deg,
+    rgba(22, 27, 38, 1) 37%,
+    rgba(2, 0, 36, 1) 100%
+  );
 }
 .input-box {
   display: flex;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 4px rgba(0, 0, 0, 0.15);
-  width: 40%;
-  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
-.searchbox-container > .input-box > .input {
+.input-box > input,
+textarea {
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none !important;
   border: none;
+  border-bottom: 2px solid rgba(95, 84, 84, 0.527);
+  border-right: 2px solid rgba(80, 77, 77, 0.527);
 }
-.searchbox-container > .input-box > .input:focus {
-  box-shadow: none;
-}
-.autocomplete {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 4px rgba(0, 0, 0, 0.15);
-  background-color: white;
-  height: fit-content;
-  width: 40%;
-  max-height: 40vh;
-}
-.autocomplete-items {
-  height: 5vh;
-  width: 100%;
-  background: white;
-  padding: 10px;
-  color: rgba(0, 0, 0, 0.8);
+
+@media screen and (min-width: 475px) {
+  .input-box {
+    width: 80%;
+  }
 }
