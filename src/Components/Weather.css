@@ -27,6 +27,7 @@ h1 {
 }
 .sunrise__sunset {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
   font-size: 20px;
@@ -73,4 +74,9 @@ h1 {
   font-size: 30px;
   font-weight: 700;
   padding: 10px;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

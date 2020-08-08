@@ -56,13 +56,13 @@ const WeatherBox = ({
   }
 
   const extra = [
-    { title: "Sunrise", value: <div>{timeStamp(sunrise)}</div> },
-    { title: "Sunset", value: <div>{timeStamp(sunset)}</div> },
+    { title: "Sunrise", value: <div>{sunrise ? timeStamp(sunrise) : ""}</div> },
+    { title: "Sunset", value: <div>{sunset ? timeStamp(sunset) : ""}</div> },
   ];
   const details = [
     {
       title: "Temp..",
-      value: <div>{Math.floor(temp - 273.15)} &#8451;</div>,
+      value: <div>{temp ? Math.floor(temp - 273.15) : ""} &#8451;</div>,
 
       title1: "Condition",
       value1: (
@@ -94,38 +94,40 @@ const WeatherBox = ({
       <div className="weather__container">
         <div className="weatherbox">
           <div className="location__box">
-            {location + ",  " + country}
+            {location ? location + ",  " + country : "Search a location"}
             <h6>{new Date().toDateString()}</h6>
           </div>
           <div className="temperature__box">
-            {Math.floor(temp - 273.15)} &#8451;
+            {temp ? Math.floor(temp - 273.15) : ""} &#8451;
           </div>
           <div className="type">
             <WeatherIcons type={type} />
             {type}
           </div>
-          <div className="sunrise__sunset">
-            {extra.map((extra, j) => (
-              <div className="all__details" key={j}>
-                <div className="title">{extra.title}</div>
-                <div className="value">{extra.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="weather__details">
-          {details.map((detail, i) => (
-            <div className="ti__va" key={i}>
-              <div className="one">
-                <div className="title1">{detail.title}</div>
-                <h5>{detail.value}</h5>
-              </div>
-              <div className="two">
-                <div className="title1">{detail.title1}</div>
-                <h5>{detail.value1}</h5>
-              </div>
+          <div className="center">
+            <div className="sunrise__sunset">
+              {extra.map((extra, j) => (
+                <div className="all__details" key={j}>
+                  <div className="title">{extra.title}</div>
+                  <div className="value">{extra.value}</div>
+                </div>
+              ))}
             </div>
-          ))}
+            <div className="weather__details">
+              {details.map((detail, i) => (
+                <div className="ti__va" key={i}>
+                  <div className="one">
+                    <div className="title1">{detail.title}</div>
+                    <h5>{detail.value}</h5>
+                  </div>
+                  <div className="two">
+                    <div className="title1">{detail.title1}</div>
+                    <h5>{detail.value1}</h5>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
