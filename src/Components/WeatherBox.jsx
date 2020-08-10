@@ -8,7 +8,6 @@ import { setCity, setState } from "../store/action";
 
 import { WiHumidity, WiRaindrops, WiWindDeg } from "weather-icons-react";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useCallback } from "react";
 const WeatherBox = ({
   setState,
@@ -27,26 +26,26 @@ const WeatherBox = ({
     api: "https://api.openweathermap.org/data/2.5/",
     api_key: "005979b9efbaa27908bf6de270165897",
   };
-  const fetchdata = useCallback(async () => {
-    const bundle = await Axios.get(
-      `${apidata.api}weather?q=${city}&appid=${apidata.api_key}`
-    );
-    const bundles = bundle.data;
-    setState({
-      temp: bundles.main.temp,
-      country: bundles.sys.country,
-      type: bundles.weather[0].main,
-      condition: bundles.weather[0].description,
-      wind: bundles.wind.speed,
-      humidity: bundles.main.humidity,
-      location: bundles.name,
-      sunrise: bundles.sys.sunrise,
-      sunset: bundles.sys.sunset,
-    });
-  }, []);
   useEffect(() => {
+    const fetchdata = async () => {
+      const bundle = await Axios.get(
+        `${apidata.api}weather?q=${city}&appid=${apidata.api_key}`
+      );
+      const bundles = bundle.data;
+      setState({
+        temp: bundles.main.temp,
+        country: bundles.sys.country,
+        type: bundles.weather[0].main,
+        condition: bundles.weather[0].description,
+        wind: bundles.wind.speed,
+        humidity: bundles.main.humidity,
+        location: bundles.name,
+        sunrise: bundles.sys.sunrise,
+        sunset: bundles.sys.sunset,
+      });
+    };
     fetchdata();
-  }, [fetchdata]);
+  }, []);
   function timeStamp(RiseSet) {
     let date = new Date(RiseSet * 1000);
     let hour = date.getHours();
@@ -133,7 +132,6 @@ const WeatherBox = ({
     </div>
   );
 };
-
 const mapStateToProps = (state, ownProps) => {
   const {
     city,
